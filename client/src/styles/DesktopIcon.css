@@ -1,0 +1,299 @@
+/* ====================================
+   DESKTOP ICON CSS WITH GRID LAYOUT
+   ==================================== */
+:root {
+  /* Color Variables */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #c7e0f4;
+  
+  --color-secondary: #e6e6e6;
+  --color-secondary-dark: #d2d2d2;
+  --color-secondary-light: #f4f4f4;
+  
+  --color-accent: #107c10;
+  --color-danger: #d13438;
+  --color-warning: #ffb900;
+  --color-success: #107c10;
+  
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #323130;
+  --color-text-secondary: #605e5c;
+  --color-text-light: #a19f9d;
+  --color-border: #edebe9;
+  --color-border-dark: #d2d0ce;
+  
+  --color-taskbar: #202020;
+  --color-taskbar-light: #2d2d2d;
+  --color-taskbar-text: #ffffff;
+  --color-window-header: #0078d4;
+  --color-window-header-inactive: #f3f3f3;
+  --color-window-body: #ffffff;
+  
+  --color-context-menu: #f9f9f9;
+  --color-context-menu-hover: #e5e5e5;
+  --color-context-menu-border: #d4d4d4;
+  
+  /* Spacing Variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132);
+  --shadow-lg: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index Layers */
+  --z-desktop: 1;
+  --z-desktop-icons: 5;
+  --z-window: 10;
+  --z-window-maximized: 15;
+  --z-taskbar: 20;
+  --z-context-menu: 30;
+  --z-modal: 40;
+  --z-notification: 50;
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ====================================
+   BASE DESKTOP ICON STYLES
+   ==================================== */
+.desktop-icon-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  z-index: var(--z-desktop-icons);
+}
+
+.desktop-icon-container:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon-container.selected {
+  background: rgba(0, 120, 212, 0.3);
+}
+
+.desktop-icon-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.desktop-icon-label {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  word-break: break-word;
+  max-width: 100%;
+  padding: 2px 4px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(0, 0, 0, 0.3);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+/* Show full name on hover */
+.desktop-icon-label:hover {
+  white-space: normal;
+  word-break: break-word;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  position: relative;
+  padding: 4px 6px;
+}
+
+.desktop-icon-selection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(0, 120, 212, 0.5);
+  border-radius: var(--border-radius-md);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.desktop-icon-rename-input {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  padding: 2px 4px;
+  color: var(--color-text-primary);
+  text-align: center;
+  outline: none;
+  z-index: 10;
+}
+
+.desktop-icon-debug {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  font-size: 10px;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.desktop-icon-container:hover .desktop-icon-debug {
+  display: block;
+}
+
+/* ====================================
+   SIZE VARIANTS - SMALL (9 per column)
+   ==================================== */
+.desktop-icon-container.desktop-icon-small {
+  width: 60px;
+}
+
+.desktop-icon-small .desktop-icon-image {
+  font-size: 24px;
+  width: 36px;
+  height: 36px;
+}
+
+.desktop-icon-small .desktop-icon-label {
+  font-size: 10px;
+  max-width: 56px;
+}
+
+.desktop-icon-small .desktop-icon-rename-input {
+  font-size: 10px;
+}
+
+/* ====================================
+   SIZE VARIANTS - MEDIUM (7 per column)
+   ==================================== */
+.desktop-icon-container.desktop-icon-medium {
+  width: 80px;
+}
+
+.desktop-icon-medium .desktop-icon-image {
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+}
+
+.desktop-icon-medium .desktop-icon-label {
+  font-size: 12px;
+  max-width: 76px;
+}
+
+.desktop-icon-medium .desktop-icon-rename-input {
+  font-size: 12px;
+}
+
+/* ====================================
+   SIZE VARIANTS - LARGE (5 per column)
+   ==================================== */
+.desktop-icon-container.desktop-icon-large {
+  width: 100px;
+}
+
+.desktop-icon-large .desktop-icon-image {
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+}
+
+.desktop-icon-large .desktop-icon-label {
+  font-size: 13px;
+  max-width: 96px;
+}
+
+.desktop-icon-large .desktop-icon-rename-input {
+  font-size: 13px;
+}
+
+/* ====================================
+   RESPONSIVE STYLES FOR MOBILE
+   ==================================== */
+@media (max-width: 768px) {
+  .desktop-icon-container.desktop-icon-small {
+    width: 55px;
+  }
+  
+  .desktop-icon-small .desktop-icon-image {
+    font-size: 22px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .desktop-icon-container.desktop-icon-medium {
+    width: 70px;
+  }
+  
+  .desktop-icon-medium .desktop-icon-image {
+    font-size: 28px;
+    width: 42px;
+    height: 42px;
+  }
+  
+  .desktop-icon-container.desktop-icon-large {
+    width: 90px;
+  }
+  
+  .desktop-icon-large .desktop-icon-image {
+    font-size: 36px;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* ====================================
+   ANIMATION ENHANCEMENTS
+   ==================================== */
+@keyframes iconAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.desktop-icon-container {
+  animation: iconAppear 0.2s ease-out;
+}
+
+/* Smooth transitions when changing view modes */
+.desktop-icon-container * {
+  transition: all var(--transition-fast);
+}

@@ -1,0 +1,119 @@
+/* ===============================
+   SYSTEM ERROR OVERLAY
+   =============================== */
+
+.error-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+}
+
+/* ===============================
+   ERROR DIALOG (RECTANGULAR)
+   =============================== */
+
+.error-dialog {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  background: #f2f2f2;
+  border: 1px solid #9c9c9c;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 10000;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===============================
+   HEADER (WINDOW BAR)
+   =============================== */
+
+.error-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background: #e6e6e6;
+  border-bottom: 1px solid #b5b5b5;
+}
+
+.error-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+
+.error-close-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.error-close-btn:hover {
+  background: #c42b1c;
+  color: #fff;
+}
+
+/* ===============================
+   BODY (HORIZONTAL FEEL)
+   =============================== */
+
+.error-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error-main-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.error-sub-text {
+  font-size: 13px;
+  color: #333;
+  margin: 0;
+}
+
+.error-hint {
+  font-size: 12px;
+  color: #555;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ===============================
+   FOOTER (CLASSIC WINDOWS)
+   =============================== */
+
+.error-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  background: #e6e6e6;
+  border-top: 1px solid #b5b5b5;
+}
+
+.error-btn-ok {
+  min-width: 80px;
+  padding: 5px 16px;
+  background: #e1e1e1;
+  border: 1px solid #7a7a7a;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.error-btn-ok:hover {
+  background: #d5d5d5;
+}
+
+.error-btn-ok:active {
+  background: #cfcfcf;
+}

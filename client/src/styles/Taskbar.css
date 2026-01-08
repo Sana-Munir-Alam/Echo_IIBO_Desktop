@@ -1,0 +1,206 @@
+/* ====================================
+   CSS VARIABLES (Root level styling)
+   ==================================== */
+:root {
+  /* Color Variables */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #c7e0f4;
+  
+  --color-secondary: #e6e6e6;
+  --color-secondary-dark: #d2d2d2;
+  --color-secondary-light: #f4f4f4;
+  
+  --color-accent: #107c10;
+  --color-danger: #d13438;
+  --color-warning: #ffb900;
+  --color-success: #107c10;
+  
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #323130;
+  --color-text-secondary: #605e5c;
+  --color-text-light: #a19f9d;
+  --color-border: #edebe9;
+  --color-border-dark: #d2d0ce;
+  
+  --color-taskbar: #202020;
+  --color-taskbar-light: #2d2d2d;
+  --color-taskbar-text: #ffffff;
+  --color-window-header: #0078d4;
+  --color-window-header-inactive: #f3f3f3;
+  --color-window-body: #ffffff;
+  
+  --color-context-menu: #f9f9f9;
+  --color-context-menu-hover: #e5e5e5;
+  --color-context-menu-border: #d4d4d4;
+  
+  /* Spacing Variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132);
+  --shadow-lg: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index Layers */
+  --z-desktop: 1;
+  --z-desktop-icons: 5;
+  --z-window: 10;
+  --z-window-maximized: 15;
+  --z-taskbar: 20;
+  --z-context-menu: 30;
+  --z-modal: 40;
+  --z-notification: 50;
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ====================================
+   TASKBAR STYLES
+   ==================================== */
+.taskbar-container {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  height: 48px;
+  background: var(--color-taskbar);
+  color: var(--color-taskbar-text);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-sm);
+  z-index: var(--z-taskbar);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.taskbar-start-btn {
+  height: 100%;
+  padding: 0 var(--spacing-lg);
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.taskbar-start-btn:hover {
+  background: var(--color-taskbar-light);
+}
+
+.start-btn-icon {
+  font-size: 18px;
+}
+
+.start-btn-text {
+  margin-left: 4px;
+}
+
+.taskbar-apps {
+  flex: 1;
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-md);
+  height: 100%;
+  align-items: center;
+}
+
+.taskbar-app-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  font-size: 16px;
+}
+
+.taskbar-app-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-app-btn.active {
+  background: var(--color-primary);
+}
+
+.taskbar-app-btn.minimized {
+  opacity: 0.6;
+}
+
+.minimized-indicator {
+  font-size: 10px;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+
+.taskbar-windows {
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-md);
+  height: 100%;
+  align-items: center;
+  flex: 1;
+}
+
+.taskbar-clock {
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 12px;
+  line-height: 1.2;
+  min-width: 80px;
+}
+
+.taskbar-time {
+  font-weight: 500;
+}
+
+.taskbar-date {
+  color: var(--color-text-light);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.taskbar-debug {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: monospace;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.taskbar-debug span {
+  margin: 0 5px;
+}

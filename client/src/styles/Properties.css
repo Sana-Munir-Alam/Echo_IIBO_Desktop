@@ -1,0 +1,399 @@
+/* ====================================
+   CSS VARIABLES (Root level styling)
+   ==================================== */
+:root {
+  /* Color Variables */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #c7e0f4;
+  
+  --color-secondary: #e6e6e6;
+  --color-secondary-dark: #d2d2d2;
+  --color-secondary-light: #f4f4f4;
+  
+  --color-accent: #107c10;
+  --color-danger: #d13438;
+  --color-warning: #ffb900;
+  --color-success: #107c10;
+  
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #323130;
+  --color-text-secondary: #605e5c;
+  --color-text-light: #a19f9d;
+  --color-border: #edebe9;
+  --color-border-dark: #d2d0ce;
+  
+  --color-taskbar: #202020;
+  --color-taskbar-light: #2d2d2d;
+  --color-taskbar-text: #ffffff;
+  --color-window-header: #0078d4;
+  --color-window-header-inactive: #f3f3f3;
+  --color-window-body: #ffffff;
+  
+  --color-context-menu: #f9f9f9;
+  --color-context-menu-hover: #e5e5e5;
+  --color-context-menu-border: #d4d4d4;
+  
+  /* Spacing Variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132);
+  --shadow-lg: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index Layers */
+  --z-desktop: 1;
+  --z-desktop-icons: 5;
+  --z-window: 10;
+  --z-window-maximized: 15;
+  --z-taskbar: 20;
+  --z-context-menu: 30;
+  --z-modal: 40;
+  --z-notification: 50;
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Properties Window Styling */
+
+.properties-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-window-body);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* Header */
+.properties-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.properties-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Tabs */
+.properties-tabs {
+  display: flex;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.properties-tab {
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-weight: 500;
+}
+
+.properties-tab:hover {
+  background-color: var(--color-secondary-light);
+  color: var(--color-text-primary);
+}
+
+.properties-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Body */
+.properties-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  background-color: var(--color-background);
+}
+
+.properties-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Icon Section */
+.properties-icon-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.properties-icon-large {
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
+
+.properties-filename {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+/* Divider */
+.properties-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Section */
+.properties-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.properties-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Row */
+.properties-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xs) 0;
+}
+
+.properties-label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  min-width: 100px;
+  font-weight: 500;
+}
+
+.properties-value {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  text-align: right;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* Details Tab Specific */
+.properties-details-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xs) 0;
+  align-items: flex-start;
+}
+
+.properties-details-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.properties-details-value {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+/* Attributes */
+.properties-label-header {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.properties-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.properties-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 13px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.properties-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.properties-checkbox input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Additional Properties Box */
+.properties-additional-box {
+  min-height: 80px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  background-color: var(--color-secondary-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.properties-additional-content {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.properties-additional-null {
+  font-size: 12px;
+  color: var(--color-text-light);
+  font-style: italic;
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+/* Footer */
+.properties-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.properties-btn {
+  padding: var(--spacing-xs) var(--spacing-lg);
+  font-size: 13px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.properties-btn:hover:not(:disabled) {
+  background-color: var(--color-secondary-light);
+  border-color: var(--color-border-dark);
+}
+
+.properties-btn:active:not(:disabled) {
+  background-color: var(--color-secondary);
+  transform: translateY(1px);
+}
+
+.properties-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.properties-btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.properties-btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Scrollbar Styling */
+.properties-body::-webkit-scrollbar,
+.properties-additional-box::-webkit-scrollbar {
+  width: 12px;
+}
+
+.properties-body::-webkit-scrollbar-track,
+.properties-additional-box::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+.properties-body::-webkit-scrollbar-thumb,
+.properties-additional-box::-webkit-scrollbar-thumb {
+  background: var(--color-border-dark);
+  border-radius: 6px;
+  border: 2px solid var(--color-background);
+}
+
+.properties-body::-webkit-scrollbar-thumb:hover,
+.properties-additional-box::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .properties-icon-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .properties-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .properties-value {
+    text-align: left;
+  }
+  
+  .properties-details-row {
+    grid-template-columns: 1fr;
+  }
+}

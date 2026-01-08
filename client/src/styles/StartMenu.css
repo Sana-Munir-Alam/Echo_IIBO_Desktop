@@ -1,0 +1,241 @@
+/* ====================================
+   CSS VARIABLES (Root level styling)
+   ==================================== */
+:root {
+  /* Color Variables */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #c7e0f4;
+  
+  --color-secondary: #e6e6e6;
+  --color-secondary-dark: #d2d2d2;
+  --color-secondary-light: #f4f4f4;
+  
+  --color-accent: #107c10;
+  --color-danger: #d13438;
+  --color-warning: #ffb900;
+  --color-success: #107c10;
+  
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #323130;
+  --color-text-secondary: #605e5c;
+  --color-text-light: #a19f9d;
+  --color-border: #edebe9;
+  --color-border-dark: #d2d0ce;
+  
+  --color-taskbar: #202020;
+  --color-taskbar-light: #2d2d2d;
+  --color-taskbar-text: #ffffff;
+  --color-window-header: #0078d4;
+  --color-window-header-inactive: #f3f3f3;
+  --color-window-body: #ffffff;
+  
+  --color-context-menu: #f9f9f9;
+  --color-context-menu-hover: #e5e5e5;
+  --color-context-menu-border: #d4d4d4;
+  
+  /* Spacing Variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132);
+  --shadow-lg: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index Layers */
+  --z-desktop: 1;
+  --z-desktop-icons: 5;
+  --z-window: 10;
+  --z-window-maximized: 15;
+  --z-taskbar: 20;
+  --z-context-menu: 30;
+  --z-modal: 40;
+  --z-notification: 50;
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ====================================
+   START MENU STYLES
+   ==================================== */
+.start-menu-container {
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  width: 350px;
+  height: 500px;
+  background: var(--color-surface);
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-modal);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.start-menu-header {
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+}
+
+.start-menu-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.start-menu-user-avatar {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.start-menu-user-info {
+  flex: 1;
+}
+
+.start-menu-username {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.start-menu-user-status {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.start-menu-apps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.start-menu-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+}
+
+.start-menu-app:hover {
+  background: var(--color-secondary);
+}
+
+.start-menu-app:active {
+  background: var(--color-secondary-dark);
+}
+
+.start-menu-app-icon {
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-menu-app-name {
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.start-menu-footer {
+  padding: var(--spacing-md);
+  background: var(--color-secondary);
+  border-top: 1px solid var(--color-border);
+}
+
+.start-menu-power-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.start-menu-power-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius-circle);
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-menu-power-btn:hover {
+  background: var(--color-secondary-dark);
+  color: var(--color-primary);
+}
+
+.start-menu-power-btn:active {
+  background: var(--color-border);
+}
+
+.start-menu-debug {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: monospace;
+}
+
+/* Scrollbar styling for apps grid */
+.start-menu-apps::-webkit-scrollbar {
+  width: 8px;
+}
+
+.start-menu-apps::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.start-menu-apps::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 4px;
+}
+
+.start-menu-apps::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}

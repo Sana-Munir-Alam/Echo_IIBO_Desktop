@@ -1,0 +1,480 @@
+/* ====================================
+   CSS VARIABLES (Root level styling)
+   ==================================== */
+:root {
+  /* Color Variables */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #c7e0f4;
+  
+  --color-secondary: #e6e6e6;
+  --color-secondary-dark: #d2d2d2;
+  --color-secondary-light: #f4f4f4;
+  
+  --color-accent: #107c10;
+  --color-danger: #d13438;
+  --color-warning: #ffb900;
+  --color-success: #107c10;
+  
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --color-text-primary: #323130;
+  --color-text-secondary: #605e5c;
+  --color-text-light: #a19f9d;
+  --color-border: #edebe9;
+  --color-border-dark: #d2d0ce;
+  
+  --color-taskbar: #202020;
+  --color-taskbar-light: #2d2d2d;
+  --color-taskbar-text: #ffffff;
+  --color-window-header: #0078d4;
+  --color-window-header-inactive: #f3f3f3;
+  --color-window-body: #ffffff;
+  
+  --color-context-menu: #f9f9f9;
+  --color-context-menu-hover: #e5e5e5;
+  --color-context-menu-border: #d4d4d4;
+  
+  /* Spacing Variables */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132);
+  --shadow-lg: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index Layers */
+  --z-desktop: 1;
+  --z-desktop-icons: 5;
+  --z-window: 10;
+  --z-window-maximized: 15;
+  --z-taskbar: 20;
+  --z-context-menu: 30;
+  --z-modal: 40;
+  --z-notification: 50;
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+/* ====================================
+   NOTEPAD STYLES
+   ==================================== */
+.notepad-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ====================================
+   TOOLBAR & MENU STYLES
+   ==================================== */
+.notepad-toolbar {
+  padding: 0;
+  background: #f3f3f3;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 0;
+  position: relative;
+  user-select: none;
+  z-index: 1;
+}
+
+.notepad-menu-item {
+  position: relative;
+  display: inline-block;
+}
+
+.notepad-menu-item.active .notepad-btn {
+  background: #e5e5e5;
+  color: #000;
+}
+
+.notepad-btn {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+  transition: all var(--transition-fast);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.notepad-btn:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+.notepad-btn:active {
+  background: #d0d0d0;
+}
+
+/* ====================================
+   DROPDOWN MENU STYLES
+   ==================================== */
+.notepad-dropdown {
+  display: none;
+  position: absolute;
+  background: #f9f9f9;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  padding: 4px 0;
+  animation: dropdownFadeIn 0.1s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notepad-dropdown.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+  color: #333;
+  text-align: left;
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+.dropdown-item:active {
+  background: #d0d0d0;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 4px 8px;
+  pointer-events: none;
+}
+
+/* ====================================
+   TEXTAREA STYLES
+   ==================================== */
+.notepad-textarea {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 12px;
+  background: #fff;
+  color: #333;
+  box-sizing: border-box;
+  transition: font-size 0.2s ease;
+  overflow: auto;
+}
+
+.notepad-textarea:focus {
+  outline: none;
+}
+
+.notepad-textarea::selection {
+  background: #0078d4;
+  color: white;
+}
+
+/* ====================================
+   STATUS BAR STYLES
+   ==================================== */
+.notepad-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px;
+  background: #f3f3f3;
+  border-top: 1px solid #e0e0e0;
+  font-size: 12px;
+  color: #666;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 28px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.status-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-filename {
+  font-weight: 500;
+  color: #333;
+}
+
+.status-modified {
+  color: #d13438;
+  font-weight: bold;
+}
+
+.status-divider {
+  color: #ccc;
+}
+
+.status-saved {
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.status-saved.saved {
+  color: #107c10;
+  background: #e6f4ea;
+}
+
+.status-saved.unsaved {
+  color: #d13438;
+  background: #fce8e6;
+}
+
+.status-right {
+  text-align: right;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #666;
+  display: flex;
+  gap: 12px;
+}
+
+/* ====================================
+   CLOSE CONFIRMATION POPUP STYLES
+   ==================================== */
+.notepad-close-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.notepad-close-popup {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  overflow: hidden;
+  animation: popupSlideIn 0.3s ease;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-title {
+  background: linear-gradient(135deg, #0078d4, #106ebe);
+  color: white;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.popup-message {
+  padding: 24px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.popup-buttons {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background: #f8f8f8;
+}
+
+.popup-btn {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.popup-save {
+  background: #0078d4;
+  color: white;
+}
+
+.popup-save:hover {
+  background: #106ebe;
+}
+
+.popup-dont-save {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.popup-dont-save:hover {
+  background: #e0e0e0;
+}
+
+.popup-cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.popup-cancel:hover {
+  background: #e0e0e0;
+}
+
+/* ====================================
+   SCROLLBAR STYLES
+   ==================================== */
+.notepad-textarea::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.notepad-textarea::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.notepad-textarea::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 3px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.notepad-textarea::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.notepad-textarea::-webkit-scrollbar-corner {
+  background: #f0f0f0;
+}
+
+/* ====================================
+   RESPONSIVE & ACCESSIBILITY
+   ==================================== */
+@media (max-width: 768px) {
+  .notepad-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .dropdown-item {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .notepad-textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .notepad-close-popup {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+
+.notepad-btn:focus-visible,
+.dropdown-item:focus-visible {
+  outline: 2px solid #0078d4;
+  outline-offset: -2px;
+}
+
+@media (prefers-contrast: high) {
+  .notepad-btn:hover,
+  .dropdown-item:hover {
+    outline: 2px solid currentColor;
+  }
+  
+  .status-saved.saved {
+    border: 1px solid #107c10;
+  }
+  
+  .status-saved.unsaved {
+    border: 1px solid #d13438;
+  }
+}
+
+@media print {
+  .notepad-toolbar,
+  .notepad-status {
+    display: none;
+  }
+  
+  .notepad-textarea {
+    border: none;
+    padding: 0;
+    font-size: 12pt;
+  }
+}
