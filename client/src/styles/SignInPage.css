@@ -334,35 +334,6 @@
   transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
-  .signin-container {
-    min-width: 90%;
-    padding: 30px 20px;
-  }
-
-  .signin-avatar {
-    width: 100px;
-    height: 100px;
-    font-size: 50px;
-  }
-
-  .signin-username {
-    font-size: 24px;
-  }
-
-  .signin-footer {
-    bottom: 20px;
-    right: 20px;
-  }
-
-  .signin-footer-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
-  }
-}
-
 /* Accessibility */
 .signin-password-input:focus-visible,
 .signin-hint-button:focus-visible,
