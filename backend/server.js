@@ -770,7 +770,6 @@ app.listen(PORT,'0.0.0.0' ,() => {
   console.log('🚀 WINDOWS DESKTOP BACKEND WITH PROPERTIES');
   console.log('='.repeat(50));
   console.log(`📡 http://localhost:${PORT}`);
-  console.log(`🌐 Frontend: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
   console.log(`📁 Uploads: ${uploadsDir}`);
   console.log(`📊 Max file size: 50MB`);
   console.log('='.repeat(50));

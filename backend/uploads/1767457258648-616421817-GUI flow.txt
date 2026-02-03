@@ -1,0 +1,2 @@
+g++ guicode.cpp -o guicode.exe -lraylib -lopengl32 -lgdi32 -lwinmm
+PS C:\Users\sanam\OneDrive\Desktop> ./guicode.exe

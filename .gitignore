@@ -17,7 +17,6 @@ build/
 *.log
 
 # Runtime data
-uploads/
 .DS_Store
 Thumbs.db
 
