@@ -66,7 +66,7 @@ const upload = multer({
 // }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use('/uploads', express.static(uploadsDir));
+app.use('/incognito-desktop/uploads', express.static(uploadsDir));
 app.use(cors());
 // ====================
 // MONGODB CONNECTION
