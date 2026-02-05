@@ -1,0 +1,9 @@
+CISD has detected suspicious system activity during the Window of Death: 11:15 PM – 11:40 PM.
+
+Four employees had the external server access: Alice Smith, Bob Johnson, Dana Lee, and Carl Rogers.
+
+Your task: Analyze the activity logs and determine which employee had no valid digital signature activity during this window.
+
+Your task is to analyze the logs and find the certain someone's last time stamp within the death window who has no signature.
+
+XXXX

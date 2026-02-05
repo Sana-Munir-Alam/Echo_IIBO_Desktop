@@ -1,0 +1,4 @@
+IT SEEMS THAT THE FIRST LETTER OF THE FIRST WORD OF EVERY LINE SEEMS TO MATTER IN THE ENCODING WORLD. THE QUESTION IS, ARE ALL THE LINES IMPORTANT?
+
+
+"Here i seem to notice that the alphabets map to different number values. From what I have observed, E maps to 5 and Y maps to 25. There seems to be a pattern"

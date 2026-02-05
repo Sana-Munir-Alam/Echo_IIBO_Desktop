@@ -1,0 +1,36 @@
+🧠 The Channel Speaks
+
+This is no ordinary text.
+Some symbols are echoes of the channel itself, meant to guide the transmission, not convey information.
+These letters appear at boundaries and repeat without forming words. They are routing echoes — ignore them.
+
+Other symbols scream like static — loud, meaningless interference.
+Only by silencing this static can you hear the message clearly.
+
+Once the noise subsides, numbers emerge.
+They are the voices of the message itself, speaking in the oldest cipher known:
+1 = A, 2 = B, … 26 = Z.
+
+But the channel leaves traces of echoes.
+Triangles (∆) hover near numbers like shadows, adding secret vowels:
+
+Odd numbers whisper E
+
+Even numbers hum O
+
+Only the first triangle before a number counts; extra triangles are just echoes repeating in the void.
+
+Then there are Sigmas (Σ).
+They never speak alone.
+Instead, they borrow the tone of the nearest number to their left on the same line.
+Divide that number by 4 and let the remainder reveal the consonant they imitate:
+
+Remainder	Σ becomes
+1			S
+2			T
+3			R
+0			N
+
+Assemble letters, vowels, and borrowed consonants carefully — but beware.
+The channel has pushed the message forward by two letters, like a code within a code.
+To hear it properly, you must step back — shift the entire message back by 2 letters.

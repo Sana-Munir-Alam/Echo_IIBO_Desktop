@@ -1,0 +1,14 @@
+The system didn’t fail outright — it hesitated.
+
+During transmission, the analyzer flagged a delayed fragment, not a full word.
+Only two characters surfaced before the stream resumed:
+
+C 	O
+
+They weren’t corrupted — just late.
+
+The delay wasn’t random either.
+Logs show a latency of 10 units, meaning the fragment arrived TEN steps behind where it should have appeared in the sequence.
+
+Engineers noted that delayed fragments don’t disappear — they simply arrive out of place.
+To reconstruct the original message, the fragment must be shifted back by the amount of latency and re-inserted where it belongs.

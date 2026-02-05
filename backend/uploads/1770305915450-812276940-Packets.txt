@@ -1,0 +1,13 @@
+Packets Detected During the Sweep
+
+Packet	Department					TS	Content
+
+A	Reality Reconstruction Operations (RRO)		3?1-α	MEDKWUS
+B	Directorate of Order & Stability		2?4-β	VIZZK
+C	PADL						1?8-γ	YYAMEA
+D	CISD						4?7-δ	XNVN
+
+
+Some parts of the timestamps were corrupted during the Sweep — represented by ?.
+Each timestamp is still a 3-digit number — no more.
+Only numbers that make sense with the department’s quirks will reveal the correct flow of events.

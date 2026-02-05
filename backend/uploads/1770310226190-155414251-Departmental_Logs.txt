@@ -1,0 +1,14 @@
+During the Sweep, each department’s clock behaved a little differently. Their quirks may shift the moments in strange ways, but if you observe carefully, the echoes will fall into order and reveal hidden letters:
+
+Reality Reconstruction Operations (RRO): The middle moment stretches — imagine it growing by seven ticks.
+
+Directorate of Order & Stability: The first step sometimes pulls back — three ticks in reverse.
+
+PADL: They march steadily, adding a dozen ticks, but only the part that fits in a single cycle of 60 matters; anything beyond 60 wraps back around.
+
+CISD: They enjoy flipping perspectives — the first may end up last.
+
+Piece together the echoes, follow the rhythm, and uncover the letters hidden in their signal.
+
+
+“Some numbers have faded in the logs. Only by observing the patterns and adjusting for the quirks will the true order appear — and with it, the hidden code.”

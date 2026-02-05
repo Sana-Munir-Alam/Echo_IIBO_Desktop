@@ -1,0 +1,11 @@
+AED never entered Echo’s office.
+
+Yet the footage was altered.
+
+A remote cleanup filter brushed across the camera feed—not enough to erase the truth, but enough to distort it. The corruption did not strike evenly. Each color channel responded according to its own bias.
+
+The pixels still remember.
+Reconstruct them, and the artifact will confess.
+
+Each color channel is a binary stream, read left to right. Some bits survived intact; others hesitated. Unknown bits are marked with "?"
+
