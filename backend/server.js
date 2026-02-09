@@ -712,6 +712,17 @@ app.use((err, req, res, next) => {
 });
 
 // ====================
+// SERVE REACT BUILD FILES
+// ====================
+const clientBuildPath = path.join(__dirname, '../client/build');
+app.use('/incognito-desktop', express.static(clientBuildPath));
+
+// Catch-all route for React Router (must be last route)
+app.get('/incognito-desktop/*', (req, res) => {
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
+
+// ====================
 // INITIALIZE DEFAULT DATA
 // ====================
 async function initializeDefaultData() {
