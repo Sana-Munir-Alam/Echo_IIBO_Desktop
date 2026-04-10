@@ -1,4 +1,4 @@
-# Echo — IIBO Desktop Simulator
+# Echo — IIBO Desktop Simulator - Incognito Investigation
 
 A web-based desktop environment replicating Windows OS behavior with a virtual file system, command-line interface, and modular application system.
 
