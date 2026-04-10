@@ -66,7 +66,7 @@ const upload = multer({
 // }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use('/incognito-desktop/uploads', express.static(uploadsDir));
+app.use('/uploads', express.static(uploadsDir));
 app.use(cors());
 // ====================
 // MONGODB CONNECTION
@@ -134,7 +134,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Echo IIBO Desktop API is running!' });
 });
 
-app.get('/incognito-desktop/api/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -143,7 +143,7 @@ app.get('/incognito-desktop/api/health', (req, res) => {
   });
 });
 
-app.get('/incognito-desktop/api/wallpaper', async (req, res) => {
+app.get('/api/wallpaper', async (req, res) => {
   try {
     let wallpaper = await Wallpaper.findOne();
     
@@ -163,7 +163,7 @@ app.get('/incognito-desktop/api/wallpaper', async (req, res) => {
   }
 });
 
-app.put('/incognito-desktop/api/wallpaper', async (req, res) => {
+app.put('/api/wallpaper', async (req, res) => {
   try {
     const { wallpaperUrl } = req.body;
     
@@ -197,7 +197,7 @@ app.put('/incognito-desktop/api/wallpaper', async (req, res) => {
 // ====================
 
 // Sign In Endpoint
-app.post('/incognito-desktop/api/auth/signin', async (req, res) => {
+app.post('/api/auth/signin', async (req, res) => {
   try {
     const { password } = req.body;
     
@@ -233,7 +233,7 @@ app.post('/incognito-desktop/api/auth/signin', async (req, res) => {
   }
 });
 
-app.get('/incognito-desktop/api/files', async (req, res) => {
+app.get('/api/files', async (req, res) => {
   try {
     const dirPath = req.query.path || 'C:';
     console.log(`📂 Fetching files from: ${dirPath}`);
@@ -252,7 +252,7 @@ app.get('/incognito-desktop/api/files', async (req, res) => {
   }
 });
 
-app.get('/incognito-desktop/api/files/:id', async (req, res) => {
+app.get('/api/files/:id', async (req, res) => {
   try {
     const file = await File.findById(req.params.id);
     
@@ -269,7 +269,7 @@ app.get('/incognito-desktop/api/files/:id', async (req, res) => {
   }
 });
 
-app.post('/incognito-desktop/api/files/folder', async (req, res) => {
+app.post('/api/files/folder', async (req, res) => {
   try {
     const { name, path: folderPath = 'C:' } = req.body;
     
@@ -301,7 +301,7 @@ app.post('/incognito-desktop/api/files/folder', async (req, res) => {
   }
 });
 
-app.post('/incognito-desktop/api/files/text', async (req, res) => {
+app.post('/api/files/text', async (req, res) => {
   try {
     const { name, path: filePath = 'C:', content = '' } = req.body;
     
@@ -337,7 +337,7 @@ app.post('/incognito-desktop/api/files/text', async (req, res) => {
   }
 });
 
-app.put('/incognito-desktop/api/files/:id', async (req, res) => {
+app.put('/api/files/:id', async (req, res) => {
   try {
     const { content } = req.body;
     
@@ -364,7 +364,7 @@ app.put('/incognito-desktop/api/files/:id', async (req, res) => {
 });
 
 // Save Code Working
-app.post('/incognito-desktop/api/files/verify-save-code', async (req, res) => {
+app.post('/api/files/verify-save-code', async (req, res) => {
   try {
     const { saveCode } = req.body;
     
@@ -383,7 +383,7 @@ app.post('/incognito-desktop/api/files/verify-save-code', async (req, res) => {
 });
 
 // Rename Code Working
-app.post('/incognito-desktop/api/files/verify-rename-code', async (req, res) => {
+app.post('/api/files/verify-rename-code', async (req, res) => {
   try {
     const { renameCode } = req.body;
     
@@ -401,7 +401,7 @@ app.post('/incognito-desktop/api/files/verify-rename-code', async (req, res) => 
   }
 });
 
-app.put('/incognito-desktop/api/files/:id/rename', async (req, res) => {
+app.put('/api/files/:id/rename', async (req, res) => {
   try {
     const { renameCode, newName } = req.body;
     
@@ -475,7 +475,7 @@ app.put('/incognito-desktop/api/files/:id/rename', async (req, res) => {
 });
 
 // Delete Code working
-app.delete('/incognito-desktop/api/files/:id', async (req, res) => {
+app.delete('/api/files/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { deletionCode } = req.body;
@@ -517,7 +517,7 @@ app.delete('/incognito-desktop/api/files/:id', async (req, res) => {
   }
 });
 
-app.post('/incognito-desktop/api/files/upload', upload.single('file'), async (req, res) => {
+app.post('/api/files/upload', upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, error: 'No file uploaded' });
@@ -583,7 +583,7 @@ app.post('/incognito-desktop/api/files/upload', upload.single('file'), async (re
 });
 
 // Serve file content (for Terminal and viewing)
-app.get('/incognito-desktop/api/files/:id/content', async (req, res) => {
+app.get('/api/files/:id/content', async (req, res) => {
   try {
     const file = await File.findById(req.params.id);
     
@@ -618,7 +618,7 @@ app.get('/incognito-desktop/api/files/:id/content', async (req, res) => {
 // Add this endpoint to server.js after the existing file routes
 
 // Password Validation Endpoint
-app.post('/incognito-desktop/api/files/validate-password', async (req, res) => {
+app.post('/api/files/validate-password', async (req, res) => {
   try {
     const { fileId, passwords } = req.body;
     
