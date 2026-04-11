@@ -118,6 +118,11 @@ The Terminal component parses typed commands and queries the file API or updates
 
 Live Demo: [https://echo-iibo-desktop.onrender.com/]
 
+> Note:
+> This project is deployed on the free tier of Render. Due to ephemeral disk storage, uploaded files (images, videos, PDFs) are not persistently stored and may not load correctly after server restarts.
+> 
+> For full functionality, including proper media handling and file persistence, run the application locally.
+
 ## How to Run Locally
 
 ```bash
