@@ -2,6 +2,8 @@
 
 A web-based desktop environment replicating Windows OS behavior with a virtual file system, command-line interface, and modular application system.
 
+![Screenshot 0](./screenshots/s0.png)
+
 ## Overview
 
 A full-stack web application that simulates a Windows-style desktop environment, built as a puzzle-platform for **PROCOM'26 at FAST University** for a live investigative mystery module **Incognito Investigation**. Participants interact with a functional browser-based desktop that replicates Windows UI conventions: a file explorer, notepad editor, media viewer, terminal emulator, taskbar, start menu, and right-click context menus. Files, folders, and uploaded media are persisted in MongoDB and served via a Node.js backend. The application serves as the investigative interface through which participants access clue files, read documents, view images, and watch videos as part of a narrative mystery.
@@ -103,8 +105,6 @@ The Terminal component parses typed commands and queries the file API or updates
 
 ## Screenshots
 
-- "Sign-in page requires the password to login to desktop"
-![Screenshot 0](./screenshots/s0.png)
 - "File Explorer navigating the virtual Windows directory tree only 1 sub level, otherwise Access Restricted"
 ![Screenshot 1](./screenshots/s1.png)
 - "Password-locked folder access prompt with sequential key validation"
